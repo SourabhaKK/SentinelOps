@@ -1,0 +1,86 @@
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                   SENTINELOPS — API KEYS QUICK REFERENCE                      ║
+║                         Phase 0 Prerequisites Setup                            ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+STEP 1: COPY TEMPLATE
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ npm run setup:env                                                           │
+│ (or: cp .env.example .env)                                                  │
+│                                                                              │
+│ This creates .env file in repo root with placeholders.                       │
+│ .env is in .gitignore — won't be committed.                                  │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+STEP 2: GET YOUR API KEYS (Fill in one by one)
+┌─────────────────────────────────────────────────────────────────────────────┐
+
+KEY #1: DAYTONA_API_KEY
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ What it is:  Sandbox execution environment for drift analysis               │
+│ Where:       https://daytona.io                                             │
+│ How:         Sign up → Dashboard → API Keys → Generate New Key              │
+│ Paste into:  DAYTONA_API_KEY=<your_key>                                     │
+│ Status:      [ ] Done                                                        │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+KEY #2: GOOGLE_API_KEY (Gemini 2.0 Flash)
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ What it is:  Primary LLM model (TrueForge agent reasoning)                  │
+│ Where:       https://ai.google.dev/                                         │
+│ How:         Click "Get API Key" → Create project → Generate key            │
+│ Paste into:  GOOGLE_API_KEY=<your_key>                                      │
+│ Note:        Free tier, no credit card needed                               │
+│ Status:      [ ] Done                                                        │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+KEY #3: GROQ_API_KEY
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ What it is:  Fallback LLM model (if Gemini fails)                          │
+│ Where:       https://console.groq.com/                                      │
+│ How:         Sign up → API Keys section → Create New Key                    │
+│ Paste into:  GROQ_API_KEY=<your_key>                                        │
+│ Note:        Free tier, monthly quota reset                                 │
+│ Status:      [ ] Done                                                        │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+STEP 3: VERIFY SETUP
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ npm run check:env                                                           │
+│                                                                              │
+│ Output will show:                                                            │
+│   ✅ Keys Present: (any keys you've filled in)                               │
+│   ❌ Missing Keys: (any keys still needed)                                    │
+│                                                                              │
+│ When all 3 keys are present, you'll see:                                     │
+│   ✨ All required keys configured! Ready for Phase 1.3                       │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+IMPORTANT SECURITY NOTES
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ ⚠️  .env file is NEVER committed (it's in .gitignore)                        │
+│ ⚠️  Never share your API keys or paste them in chat/Discord/Slack             │
+│ ⚠️  If you accidentally expose a key, revoke it immediately                  │
+│ ⚠️  Each key should be unique and isolated per TECHSTACK.md                  │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+TROUBLESHOOTING
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ Q: "❌ .env file not found"                                                  │
+│ A: Run `npm run setup:env`                                                   │
+│                                                                              │
+│ Q: "Empty value for DAYTONA_API_KEY"                                        │
+│ A: Make sure you copied the full key with no spaces at end                  │
+│                                                                              │
+│ Q: Key works but TrueForge still fails                                       │
+│ A: Run `npm run check:env` then `npm run trueforge`                         │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+NEXT STEPS AFTER SETUP
+1. Fill in all three API keys in .env
+2. Run: npm run check:env (should show ✨ all configured)
+3. Proceed to Phase 1.3: Get TrueForge running locally
+4. Run: npm run trueforge (start agent runtime)
+5. Test a basic chat turn end-to-end
+
+See docs/ENV_SETUP.md for detailed instructions.
