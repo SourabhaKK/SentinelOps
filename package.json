@@ -1,0 +1,35 @@
+{
+  "name": "sentinelops",
+  "version": "1.0.0",
+  "description": "AI safety incident-response agent on TrueForge — MCP tool orchestration, sandboxed drift analysis, human approval gates, and subagent delegation. Investigates its own repo's real commit history. Built solo for The Agent Harness Hackathon (WeMakeDevs × TrueFoundry).",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node src/index.ts",
+    "test": "vitest",
+    "test:mcp": "vitest mcp-server/",
+    "test:skills": "pytest skills/",
+    "trueforge": "npx @truefoundry/trueforge"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SourabhaKK/SentinelOps.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/SourabhaKK/SentinelOps/issues"
+  },
+  "homepage": "https://github.com/SourabhaKK/SentinelOps#readme",
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.11"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0"
+  }
+}
