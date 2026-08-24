@@ -17,19 +17,19 @@
   },
   "sandbox": {
     "provider": "daytona",
-    "apiKey": "${DAYTONA_API_KEY}"
-  },
-  "mcp_servers": [
-    {
-      "name": "github",
-      "type": "builtin",
-      "config": {
-        "repository": "SourabhaKK/SentinelOps"
-      }
+    "apiKey": "${DAYTONA_API_KEY}",
+    "config": {
+      "timeout": 30000,
+      "environment": "prod"
     }
-  ],
+  },
+  "mcp_servers": [],
   "session": {
     "storage": "sqlite",
-    "path": "./data/sessions.db"
+    "path": "data/sessions.db",
+    "keepAlive": true
+  },
+  "logging": {
+    "level": "info"
   }
 }

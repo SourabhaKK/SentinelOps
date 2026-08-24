@@ -14,23 +14,30 @@ Time spent (rough):
 
 ---
 
-### [Phase 1.3] — Aug 24, 2026 — [~]
+### [Phase 1.3] — Aug 24, 2026 — !
 
 **What was built:**
-- All 3 API keys configured: DAYTONA_API_KEY, GOOGLE_API_KEY, GROQ_API_KEY
+- All 3 API keys configured: DAYTONA_API_KEY, GOOGLE_API_KEY, GROQ_API_KEY ✅
 - trueforge.config.json created with Gemini 2.0 Flash (primary) and Groq (fallback) models
-- mcp-server/tsconfig.json configured for TS 7.0 compatibility
+- Environment setup scripts and verification (check:env working correctly)
 - docs/PHASE_1.3_TRUEFORGE_SETUP.md with detailed startup instructions
 - data/ directory created for session storage
 
 **What broke:**
-MCP SDK imports need debugging (StdioServerTransport not exported). Deferred to Phase 1.5 detailed implementation. Phase 1.3 focus is model connection, not MCP server completion.
+TrueForge v0.1.4 fails to start on Windows due to ESM loader compatibility issue with absolute paths. Error: "Only URLs with a scheme in: file, data, and node are supported by the default ESM loader. On Windows, absolute paths must be valid file:// URLs. Received protocol 'c:'"
+
+This affects startup regardless of configuration or how TrueForge is invoked. Local sandbox fallback also unavailable on Windows (macOS/Linux only).
 
 **Fix or resolution:**
-Prioritized getting TrueForge running with models first (core requirement for Phase 1.3). MCP server TypeScript issues can be resolved in Phase 1.5 when full MCP integration is done.
+BLOCKED on Windows with TrueForge v0.1.4. Three workaround options:
+1. Use WSL (Windows Subsystem for Linux) — recommended for hackathon
+2. Use Docker containerization
+3. Switch to macOS/Linux machine
+
+See DECISIONS.md for blocker escalation.
 
 **Time spent (rough):**
-~20 minutes.
+~30 minutes (config, debugging, attempting startup).
 
 ---
 

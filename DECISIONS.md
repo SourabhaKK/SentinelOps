@@ -76,3 +76,12 @@ Pre-build entries below capture decisions already made during planning, so a Cla
 **Alternative considered:** Copy the Allica CLAUDE.md/AGENTS.md directly and adjust as needed.
 **Why rejected:** A copied file that doesn't match this repo's real structure (TypeScript MCP server, TrueForge catalog config, Daytona sandbox skill, Python sandbox skill) reads as process theater to anyone who checks it against the actual code, rather than genuine practice.
 **Source:** Council audit round 3.
+
+### [Phase 1.3] TrueForge v0.1.4 Windows compatibility blocker — escalate to WSL
+**Decision:** TrueForge v0.1.4 fails to start on Windows (ESM loader absolute-path incompatibility). Recommend WSL (Windows Subsystem for Linux) as immediate workaround for hackathon continuity.
+**Issue:** All 3 API keys configured and verified; TrueForge startup fails with "Only URLs with a scheme in: file, data, and node are supported... Received protocol 'c:'". Affects all Windows startup attempts regardless of config.
+**Alternative considered:** (1) Debug TrueForge ESM loader issue (time-intensive, low success probability on Day 1). (2) Use Docker (adds setup, slower iteration). (3) Rewrite agent runtime (out of scope, defeats hackathon tool choice).
+**Why WSL:** Fastest unblock. TrueForge and all code run identically to Linux; native Windows file integration; VSCode WSL extension for seamless IDE use. No container overhead. Proven pattern for Node.js on Windows.
+**Why not pure Windows:** TrueForge v0.1.4 has a fundamental ESM+Windows incompatibility; waiting for v0.1.5 is not viable in a 6-day hackathon.
+**Source:** Phase 1.3 stop condition triggered per WORKFLOW.md. All prerequisites (API keys) complete; core tool (TrueForge) is blocker.
+**Next:** User should install WSL2 and proceed with Phase 1.3 in WSL terminal (same commands, same code, Linux runtime).
