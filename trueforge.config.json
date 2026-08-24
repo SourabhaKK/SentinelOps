@@ -1,0 +1,35 @@
+{
+  "agent": {
+    "name": "SentinelOps",
+    "description": "AI safety incident-response agent for ML systems"
+  },
+  "models": {
+    "primary": {
+      "provider": "google",
+      "model": "gemini-2.0-flash",
+      "apiKey": "${GOOGLE_API_KEY}"
+    },
+    "fallback": {
+      "provider": "groq",
+      "model": "mixtral-8x7b-32768",
+      "apiKey": "${GROQ_API_KEY}"
+    }
+  },
+  "sandbox": {
+    "provider": "daytona",
+    "apiKey": "${DAYTONA_API_KEY}"
+  },
+  "mcp_servers": [
+    {
+      "name": "github",
+      "type": "builtin",
+      "config": {
+        "repository": "SourabhaKK/SentinelOps"
+      }
+    }
+  ],
+  "session": {
+    "storage": "sqlite",
+    "path": "./data/sessions.db"
+  }
+}
