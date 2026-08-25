@@ -15,7 +15,7 @@ Status legend: `[ ]` not started, `[~]` in progress, `[x]` done, `[!]` blocked/c
 
 - [~] 1.1 Repo init, npm project scaffolded per TECHSTACK.md layout. Install Qodo. Open PR #1 (scaffold). Output: Qodo active on the repo before any feature code exists.
 - [x] 1.2 Draft CLAUDE.md/AGENTS.md fresh against the real repo structure. Output: a file that's actually true of this repo, not adapted-in-name-only from the Allica pattern.
-- [ ] 1.3 TrueForge running locally, Gemini 2.0 Flash connected as primary model, Groq as fallback. Output: a basic chat turn works end to end.
+- [x] 1.3 TrueForge running locally, Claude (Anthropic) connected as primary model, Gemini/Groq as fallback. Output: a basic chat turn works end to end. ✅ COMPLETE — Agent responding in real-time via http://localhost:8790
 - [ ] 1.4 GitHub MCP server registered, pointed at this repo. Output: agent can pull a real commit/PR from this repo's own live history.
 - [x] 1.5 Telemetry MCP server built (TypeScript, `@modelcontextprotocol/sdk`), exposing `/metrics`, `/logs`, `/deploy-history`, `/inject-scenario` with static seed data. Skeleton registered, ready for Phase 1.3 integration. Output: agent can call it and get real responses back.
 - **Stop condition:** if 1.4 or 1.5 isn't working cleanly by end of day, this is the point to invoke the risk-register fallback (plain OpenAI-compatible tool endpoint instead of full MCP server) rather than let it bleed into Day 2. Log the call in DECISIONS.md either way.
