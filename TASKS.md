@@ -29,10 +29,10 @@ Status legend: `[ ]` not started, `[~]` in progress, `[x]` done, `[!]` blocked/c
 
 ## Phase 3 — Approval gates (Day 3, Aug 26)
 
-- [ ] 3.1 PR + Qodo checkpoint.
-- [ ] 3.2 Identify and configure the 3–4 destructive tool calls (disable endpoint, rollback, revoke key, publish report) as approval-required.
-- [ ] 3.3 Build stub handlers for each — visible non-execution without sign-off is the requirement, not real destructive capability.
-- [ ] 3.4 Test both the accept path and the reject path explicitly. Output: a rejected approval demonstrably halts the action.
+- [~] 3.1 PR + Qodo checkpoint.
+- [x] 3.2 Identify and configure the 3–4 destructive tool calls (disable endpoint, rollback, revoke key, publish report) as approval-required. ✅ approval-gates.json
+- [x] 3.3 Build stub handlers for each — visible non-execution without sign-off is the requirement, not real destructive capability. ✅ approval_handlers.py
+- [x] 3.4 Test both the accept path and the reject path explicitly. Output: a rejected approval demonstrably halts the action. ✅ TESTED — Approval ACCEPT + REJECT both verified end-to-end
 
 ## Phase 4 — Subagent decomposition (Day 4, Aug 27)
 

@@ -115,6 +115,32 @@ N/A — Generated personal access token with `repo` and `read:org` scopes, paste
 
 ---
 
+### [Phase 3] — Aug 26, 2026 — x
+
+**What was built:**
+- **3.1** PR + Qodo checkpoint (awaiting Phase 2 PR merge)
+- **3.2-3.3** Approval-gates.json with 4 critical actions
+  - Disable endpoint, Rollback model, Revoke API key, Publish report
+  - Each with severity, consequences, and rollback strategy documented
+- **3.3** Python approval_handlers.py module
+  - ApprovalGate class: request_approval(), submit_approval(), can_execute()
+  - ApprovedActionHandler class: 4 stub implementations
+  - Comprehensive audit logging with timestamps + approver + reason
+- **3.4** Full test suite: both APPROVE and REJECT paths verified
+  - Scenario 1: High drift → Endpoint disabled successfully
+  - Scenario 2: Bad deploy → Rollback blocked, no execution
+
+**What broke:**
+Windows terminal encoding issues with Unicode emojis (cp1252 limit) — resolved by replacing emoji with ASCII markers.
+
+**Fix or resolution:**
+Replaced emoji characters (🔒✅❌⚠️) with ASCII-safe alternatives ([APPROVAL], [OK], [BLOCKED], [WARN]).
+
+**Time spent (rough):**
+~45 minutes (approval config, handler stubs, encoding fixes, test scenarios).
+
+---
+
 ### [Phase 1.1] — Aug 24, 2026 — x
 
 **What was built:**

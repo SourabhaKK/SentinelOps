@@ -1,0 +1,90 @@
+{
+  "approval_required_actions": [
+    {
+      "id": "disable_endpoint",
+      "name": "Disable Model Endpoint",
+      "description": "Take the model inference endpoint offline",
+      "severity": "critical",
+      "requires_approval": true,
+      "auto_approve_threshold": null,
+      "consequences": [
+        "All inference requests will fail",
+        "Downstream services cannot get predictions",
+        "Customer-facing impact: service degradation"
+      ],
+      "rollback_action": "enable_endpoint"
+    },
+    {
+      "id": "rollback_model",
+      "name": "Rollback Model Version",
+      "description": "Revert to previous model version",
+      "severity": "critical",
+      "requires_approval": true,
+      "auto_approve_threshold": null,
+      "consequences": [
+        "Model inference behavior changes",
+        "Previous version may have known issues",
+        "Data/metrics patterns will shift"
+      ],
+      "rollback_action": null
+    },
+    {
+      "id": "revoke_api_key",
+      "name": "Revoke API Key",
+      "description": "Invalidate all active API keys for the service",
+      "severity": "critical",
+      "requires_approval": true,
+      "auto_approve_threshold": null,
+      "consequences": [
+        "All authenticated requests fail",
+        "Applications must re-authenticate",
+        "Temporary service disruption"
+      ],
+      "rollback_action": "issue_new_api_key"
+    },
+    {
+      "id": "publish_incident_report",
+      "name": "Publish Incident Report",
+      "description": "Publish incident summary to stakeholders",
+      "severity": "high",
+      "requires_approval": true,
+      "auto_approve_threshold": null,
+      "consequences": [
+        "Incident details become public",
+        "May trigger incident response procedures",
+        "Creates audit trail"
+      ],
+      "rollback_action": null
+    }
+  ],
+  "approval_workflow": {
+    "request_phase": "Remediation subagent proposes action",
+    "approval_phase": "Orchestrator presents to human with full context",
+    "decision_options": ["APPROVE", "REJECT", "MODIFY"],
+    "execution_phase": "Action executes only after explicit approval",
+    "audit_logging": "All approvals/rejections logged with timestamp and reason"
+  },
+  "test_scenarios": {
+    "scenario_1": {
+      "name": "High-severity drift with approval approval",
+      "incident": "High PSI drift detected",
+      "proposed_action": "disable_endpoint",
+      "test_path": "APPROVE → Endpoint disabled",
+      "verification": "Subsequent inference requests fail with clear message"
+    },
+    "scenario_2": {
+      "name": "Bad deploy with approval rejection",
+      "incident": "Unauthorized model detected",
+      "proposed_action": "rollback_model",
+      "test_path": "REJECT → Action blocked, alternative suggested",
+      "verification": "Action does not execute, log shows rejection reason"
+    },
+    "scenario_3": {
+      "name": "Jailbreak burst with critical severity",
+      "incident": "Adversarial input surge detected",
+      "proposed_action": "revoke_api_key",
+      "test_path": "APPROVE → API keys revoked, new keys issued",
+      "verification": "Old keys no longer work, new auth required"
+    }
+  }
+}
