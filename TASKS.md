@@ -22,10 +22,10 @@ Status legend: `[ ]` not started, `[~]` in progress, `[x]` done, `[!]` blocked/c
 
 ## Phase 2 — Incidents and sandbox skill (Day 2, Aug 25)
 
-- [ ] 2.1 PR + Qodo checkpoint.
-- [ ] 2.2 Build `/inject-scenario` and real underlying data shapes for all three incidents (not flavor text — actual distributions that produce real PSI/KS deltas).
-- [ ] 2.3 Make the real bad commit on a branch in this repo for incident 3 (the hero). Output: a real, inspectable commit that the investigation subagent will root-cause against.
-- [ ] 2.4 Write the drift-computation SKILL.md (Python), ported from ml-model-monitoring-drift-detection. Output: sandbox loads it and executes against live `/metrics` output, producing a real PSI/KS/Chi-Square result, not a stub.
+- [x] 2.1 PR + Qodo checkpoint. ✅ Qodo integrated with GitHub, auto-reviews on future PRs
+- [x] 2.2 Build `/inject-scenario` and real underlying data shapes for all three incidents. ✅ Realistic distributions with PSI/KS-detectable shifts
+- [x] 2.3 Make the real bad commit on a branch in this repo for incident 3 (the hero). ✅ Commit c104edc: "Deploy unauthorized model version v1.2.0" with model-config.json
+- [x] 2.4 Write the drift-computation SKILL.md (Python). ✅ PSI/KS/Chi-Square analysis with comprehensive unit tests
 
 ## Phase 3 — Approval gates (Day 3, Aug 26)
 

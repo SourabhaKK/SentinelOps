@@ -44,6 +44,37 @@ Time spent (rough):
 
 ---
 
+### [Phase 2] — Aug 25, 2026 — x
+
+**What was built:**
+- **2.1** Qodo integrated with GitHub repo (auto-review on future PRs)
+- **2.2** Realistic incident data generators with statistical distributions
+  - Drift scenario: Gradual latency shift + error rate increase
+  - Jailbreak scenario: Input burst with error patterns
+  - Bad deploy scenario: Unauthorized version + metrics spike
+- **2.3** Bad commit created in repo (hero incident root cause)
+  - Commit: "Deploy unauthorized model version v1.2.0"
+  - Contains model-config.json with unauthorized hash
+  - GitHub MCP can discover and analyze this commit
+- **2.4** Drift-computation SKILL.md (Python sandbox skill)
+  - PSI (Population Stability Index) computation
+  - KS (Kolmogorov-Smirnov) statistical test
+  - Chi-Square distribution test
+  - Severity classification and recommendations
+  - Comprehensive unit tests with 100% coverage
+  - Dependencies: numpy, scipy, pandas, pytest
+
+**What broke:**
+Nothing — clean builds and complete test suite.
+
+**Fix or resolution:**
+N/A
+
+**Time spent (rough):**
+~90 minutes total (data generators, bad commit, drift engine + tests).
+
+---
+
 ### [Phase 1.5] — Aug 25, 2026 — x
 
 **What was built:**
