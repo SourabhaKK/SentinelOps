@@ -36,10 +36,10 @@ Status legend: `[ ]` not started, `[~]` in progress, `[x]` done, `[!]` blocked/c
 
 ## Phase 4 — Subagent decomposition (Day 4, Aug 27)
 
-- [ ] 4.1 PR + Qodo checkpoint.
-- [ ] 4.2 Split into triage / investigation / remediation-drafting subagents.
-- [ ] 4.3 Configure scoped tool access: only investigation touches GitHub and `/deploy-history`; remediation-drafting works from investigation's findings only, no direct data-source access.
-- [ ] 4.4 Run one full incident end to end through all three subagents into a proposed action sitting at the approval gate. Output: a complete triage → investigate → draft → gate loop on real data.
+- [~] 4.1 PR + Qodo checkpoint.
+- [x] 4.2 Split into triage / investigation / remediation-drafting subagents. ✅ TriageSubagent, InvestigationSubagent, RemediationSubagent
+- [x] 4.3 Configure scoped tool access: only investigation touches GitHub and `/deploy-history`; remediation-drafting works from investigation's findings only, no direct data-source access. ✅ Tool matrix enforced in orchestrator
+- [x] 4.4 Run one full incident end to end through all three subagents into a proposed action sitting at the approval gate. Output: a complete triage → investigate → draft → gate loop on real data. ✅ TESTED — Full pipeline with APPROVE/REJECT paths verified
 
 ## Phase 5 — Persistence and hardening (Day 5, Aug 28)
 

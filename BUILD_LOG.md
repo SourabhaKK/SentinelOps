@@ -115,6 +115,32 @@ N/A — Generated personal access token with `repo` and `read:org` scopes, paste
 
 ---
 
+### [Phase 4] — Aug 27, 2026 — x
+
+**What was built:**
+- **4.1** PR + Qodo checkpoint (Phase 3 PR merged)
+- **4.2-4.3** Three subagents with strict tool scoping
+  - Triage: Classify incidents (no data access)
+  - Investigation: Correlate signals (full data access)
+  - Remediation: Propose actions (findings-only access)
+  - Tool scoping enforced per subagent
+- **4.4** Full end-to-end incident pipeline
+  - SubagentOrchestrator coordinates Triage → Investigation → Remediation
+  - Complete incident context presented at approval gate
+  - Both APPROVE and REJECT approval paths verified
+  - Audit logging with timestamps, approver, reason
+
+**What broke:**
+Severity Enum serialization issue in integration test (Enum object being passed where string expected).
+
+**Fix or resolution:**
+Fixed Severity type coercion in test_full_incident_loop.py (convert Enum to string before passing to ApprovalGate).
+
+**Time spent (rough):**
+~60 minutes (subagent design, implementation, integration test, fixes).
+
+---
+
 ### [Phase 3] — Aug 26, 2026 — x
 
 **What was built:**
