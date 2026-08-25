@@ -9,7 +9,9 @@
     "test": "vitest",
     "test:mcp": "vitest mcp-server/",
     "test:skills": "pytest skills/",
-    "trueforge": "npx @truefoundry/trueforge"
+    "trueforge": "npx @truefoundry/trueforge",
+    "check:env": "node scripts/check-env.js",
+    "setup:env": "cp .env.example .env && echo 'Created .env file. Fill in your API keys.'"
   },
   "repository": {
     "type": "git",

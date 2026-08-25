@@ -44,6 +44,46 @@ Time spent (rough):
 
 ---
 
+### [Phase 1.5] — Aug 25, 2026 — x
+
+**What was built:**
+- Telemetry MCP server TypeScript fixed and compiling successfully
+- All 4 tools fully defined: `get_metrics`, `get_logs`, `get_deploy_history`, `inject_scenario`
+- MCP SDK imports corrected (StdioServerTransport from correct path)
+- Type safety improved with proper TypeScript generics
+- Build output: dist/ folder with .js, .d.ts, and source maps
+- Seed data generators working for all 3 incident scenarios
+
+**What broke:**
+TypeScript lib configuration issue (console not defined) — resolved by adding "DOM" to lib array in tsconfig.json.
+
+**Fix or resolution:**
+Updated mcp-server/tsconfig.json lib configuration and corrected MCP SDK import paths. Server now compiles cleanly.
+
+**Time spent (rough):**
+~20 minutes (fixing imports, TypeScript config, testing build).
+
+---
+
+### [Phase 1.4] — Aug 25, 2026 — x
+
+**What was built:**
+- GitHub MCP connector registered in TrueForge
+- Agent successfully authenticated and accessed repository
+- Real commit fetched from SourabhaKK/SentinelOps repo
+- Agent can read commit metadata: SHA, message, author, date, URL
+
+**What broke:**
+Nothing — GitHub connection works on first try.
+
+**Fix or resolution:**
+N/A — Generated personal access token with `repo` and `read:org` scopes, pasted into TrueForge connector.
+
+**Time spent (rough):**
+~10 minutes (GitHub token creation, TrueForge configuration, testing).
+
+---
+
 ### [Phase 1.1] — Aug 24, 2026 — x
 
 **What was built:**
