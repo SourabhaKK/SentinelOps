@@ -43,10 +43,10 @@ Status legend: `[ ]` not started, `[~]` in progress, `[x]` done, `[!]` blocked/c
 
 ## Phase 5 — Persistence and hardening (Day 5, Aug 28)
 
-- [ ] 5.1 PR + Qodo checkpoint.
-- [ ] 5.2 Run all three incidents end to end.
-- [ ] 5.3 Deliberate reconnect mid-run on the hero incident specifically. Output: investigation resumes correctly after a forced disconnect, not just after a clean pause.
-- [ ] 5.4 Fix whatever breaks under 5.2/5.3 — this phase exists specifically to find the gap between "works once" and "works reliably in front of judges."
+- [~] 5.1 PR + Qodo checkpoint.
+- [x] 5.2 Run all three incidents end to end. ✅ TESTED — All three incidents run Triage→Investigation→Remediation→Approval→Execution successfully
+- [x] 5.3 Deliberate reconnect mid-run on the hero incident specifically. Output: investigation resumes correctly after a forced disconnect, not just after a clean pause. ✅ TESTED — Hero incident survived 1 disconnect/reconnect cycle with state integrity verified
+- [x] 5.4 Fix whatever breaks under 5.2/5.3 — this phase exists specifically to find the gap between "works once" and "works reliably in front of judges." ✅ FIXED — Windows encoding issues resolved; all tests pass
 
 ## Phase 6 — Stretch and rehearsal start (Day 6, Aug 29)
 

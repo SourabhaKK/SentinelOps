@@ -115,6 +115,37 @@ N/A — Generated personal access token with `repo` and `read:org` scopes, paste
 
 ---
 
+### [Phase 5] — Aug 28, 2026 — x
+
+**What was built:**
+- **5.1** PR + Qodo checkpoint (Phase 4 PR merged)
+- **5.2** All three incident scenarios run end-to-end
+  - Incident 1: Distribution drift (low/critical severity)
+  - Incident 2: Jailbreak burst (high severity, adversarial)
+  - Incident 3: Bad deploy (critical, hero incident)
+  - Each incident: Triage → Investigation → Remediation → Approval → Execution
+- **5.3** Session persistence implementation
+  - Disk-based state storage (JSON)
+  - Investigation state checkpointing
+  - Deliberate disconnect/reconnect simulation on hero incident
+  - State recovery and resume verified
+- **5.4** End-to-end hardening test
+  - All three incidents processed successfully
+  - Hero incident survived forced disconnect (1 disconnection, 1 reconnection)
+  - Investigation resumed correctly post-reconnect
+  - No state corruption or data loss
+
+**What broke:**
+Unicode character encoding in Python output (Windows terminal cp1252 encoding).
+
+**Fix or resolution:**
+Replaced Unicode arrows (→) with ASCII equivalent (->) in output strings.
+
+**Time spent (rough):**
+~75 minutes (incident simulator, persistence layer, comprehensive test harness).
+
+---
+
 ### [Phase 4] — Aug 27, 2026 — x
 
 **What was built:**
