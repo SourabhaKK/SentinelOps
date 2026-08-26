@@ -56,12 +56,12 @@ Status legend: `[ ]` not started, `[~]` in progress, `[x]` done, `[!]` blocked/c
 
 ## Phase 7 — Submission (Day 7, Aug 30)
 
-- [ ] 7.1 Final PR + Qodo checkpoint.
-- [ ] 7.2 README written forward-facing as design decisions (why hybrid-target, why self-repo, why TypeScript+Python split), not as a chronological audit trail.
-- [ ] 7.3 One factual Claude Code disclosure sentence added to the README.
-- [ ] 7.4 30–45 minute unaided codebase walkthrough — run local setup and commands from memory, no notes.
-- [ ] 7.5 Record the demo against the storyboard, hero incident only, inside the three-minute window.
-- [ ] 7.6 Submit: public repo, demo video, short write-up.
+- [x] 7.1 Final PR + Qodo checkpoint. ✅ Phase 6 PR reviewed and merged
+- [x] 7.2 README written forward-facing as design decisions (why hybrid-target, why self-repo, why TypeScript+Python split), not as a chronological audit trail. ✅ COMPLETE — Problem statement, architecture, design rationale, technical stack, demo walkthrough
+- [x] 7.3 One factual Claude Code disclosure sentence added to the README. ✅ COMPLETE — "Built with Claude Code (Anthropic's AI-assisted development CLI) for scaffolding, orchestration, testing, and documentation."
+- [ ] 7.4 30–45 minute unaided codebase walkthrough — run local setup and commands from memory, no notes. (TODO — Part 2)
+- [ ] 7.5 Record the demo against the storyboard, hero incident only, inside the three-minute window. (TODO — Part 2)
+- [ ] 7.6 Submit: public repo, demo video, short write-up. (TODO — Part 2)
 
 ## Cut list, in order, if time runs short
 

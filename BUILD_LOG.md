@@ -115,6 +115,38 @@ N/A — Generated personal access token with `repo` and `read:org` scopes, paste
 
 ---
 
+### [Phase 7.1-7.3] — Aug 30, 2026 — ~
+
+**What was built:**
+- **7.1** PR + Qodo checkpoint (Phase 6 PR merged and reviewed)
+- **7.2** Production README.md with design rationale
+  - Problem statement (what this solves)
+  - Architecture explanation (three-tier incident response)
+  - Design decisions with justification
+    - Why three subagents (separation of concerns, performance)
+    - Why hybrid target (real GitHub + synthetic incidents)
+    - Why approval gates (safety-first, not permission-gating)
+    - Why statistical tests (PSI/KS rigor)
+  - Technical stack and file organization
+  - Running instructions
+  - Demo walkthrough
+  - Verified features checklist
+  - Competitive analysis
+  - Extensibility examples
+- **7.3** Claude Code disclosure
+  - One factual sentence: "Built with Claude Code (Anthropic's AI-assisted development CLI) for scaffolding, orchestration, testing, and documentation."
+
+**What broke:**
+N/A
+
+**Fix or resolution:**
+N/A
+
+**Time spent (rough):**
+~30 minutes (README writing, disclosure statement).
+
+---
+
 ### [Phase 6] — Aug 29, 2026 — x
 
 **What was built:**
