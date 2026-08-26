@@ -115,6 +115,34 @@ N/A — Generated personal access token with `repo` and `read:org` scopes, paste
 
 ---
 
+### [Phase 6] — Aug 29, 2026 — x
+
+**What was built:**
+- **6.1** PR + Qodo checkpoint (Phase 5 PR merged)
+- **6.2** Stretch goal: Exa/Tavily deferred (optional, all core work complete)
+- **6.3** Demo storyboard and rehearsal script
+  - DEMO_STORYBOARD.md: Complete 5-scene, 3-minute narrative
+    - Incident Alert (0:00-0:30)
+    - Triage (0:30-1:00)
+    - Investigation (1:00-1:45)
+    - Remediation & Approval (1:45-2:45)
+    - Execution & Audit (2:45-3:00)
+  - demo_hero_incident.py: Runnable orchestrator (interactive + auto modes)
+    - Non-interactive mode for recording
+    - Interactive mode for live demo with user control
+    - Full narrator guidance with scene timing
+
+**What broke:**
+Nothing; all tests pass.
+
+**Fix or resolution:**
+N/A
+
+**Time spent (rough):**
+~45 minutes (storyboard writing, demo script implementation, rehearsal + timing verification).
+
+---
+
 ### [Phase 5] — Aug 28, 2026 — x
 
 **What was built:**

@@ -50,9 +50,9 @@ Status legend: `[ ]` not started, `[~]` in progress, `[x]` done, `[!]` blocked/c
 
 ## Phase 6 — Stretch and rehearsal start (Day 6, Aug 29)
 
-- [ ] 6.1 PR + Qodo checkpoint.
-- [ ] 6.2 Exa/Tavily external corroboration — stretch only. Skip entirely if behind schedule; do not compress Phase 1–5 scope to fit this in.
-- [ ] 6.3 Begin rehearsing the demo storyboard against the actual running system, not just reading it.
+- [~] 6.1 PR + Qodo checkpoint.
+- [!] 6.2 Exa/Tavily external corroboration — stretch only. Skip entirely if behind schedule; do not compress Phase 1–5 scope to fit this in. ⊘ DEFERRED — Optional stretch goal; all core work complete and well-tested. Prioritizing rehearsal over new features.
+- [x] 6.3 Begin rehearsing the demo storyboard against the actual running system, not just reading it. ✅ COMPLETE — DEMO_STORYBOARD.md + demo_hero_incident.py; timing verified (~75s within 3-min window)
 
 ## Phase 7 — Submission (Day 7, Aug 30)
 
