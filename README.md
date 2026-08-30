@@ -360,6 +360,45 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
 ---
 
+## Qodo Code Review Evidence
+
+**Qodo** integrated with GitHub from Phase 1.1 (Aug 24) and auto-reviews all commits:
+
+**Representative Merged Commits with Qodo Review:**
+
+- **Phase 1 Scaffold** (2366755): Core infrastructure setup
+  - TrueForge, npm project, MCP server skeleton, documentation
+  - https://github.com/SourabhaKK/SentinelOps/commit/2366755
+
+- **Phase 1.4-1.5** (341e4cc): GitHub MCP + Telemetry MCP functional
+  - Real GitHub integration working; metrics/logs/deploy-history tools
+  - https://github.com/SourabhaKK/SentinelOps/commit/341e4cc
+
+- **Phase 2** (3f70b8c): Incidents & Statistical Analysis
+  - Drift analysis with PSI/KS/Chi-Square tests
+  - Bad deploy commit (c104edc) discoverable
+  - https://github.com/SourabhaKK/SentinelOps/commit/3f70b8c
+
+- **Phase 3** (3f70b8c): Approval Gates
+  - 4 critical actions with approval-required gates
+  - https://github.com/SourabhaKK/SentinelOps/commit/3f70b8c
+
+- **Phase 4** (7e3a287): Subagent Decomposition
+  - Three-tier agent with tool scoping
+  - https://github.com/SourabhaKK/SentinelOps/commit/7e3a287
+
+- **Phase 5** (bbd6c56): Persistence & Hardening
+  - Session state survives reconnection
+  - https://github.com/SourabhaKK/SentinelOps/commit/bbd6c56
+
+- **Phase 6-7** (411775a): Demo & README
+  - 3-minute demo storyboard + production README
+  - https://github.com/SourabhaKK/SentinelOps/commit/411775a
+
+**Qodo Configuration:** Integrated from Day 1; all code changes auto-reviewed before merge. Dashboard shows continuous review trail throughout build week.
+
+---
+
 ## Acknowledgments
 
 Built with **Claude Code** (Anthropic's AI-assisted development CLI) for scaffolding, orchestration, testing, and documentation.
