@@ -1,0 +1,35 @@
+{
+  "incident_id": "jailbreak-1787731576",
+  "session_id": "phase5-jailbreak-",
+  "state": "REMEDIATION_PROPOSED",
+  "triage_output": {
+    "severity": "LOW",
+    "incident_type": "UNKNOWN",
+    "confidence": "LOW"
+  },
+  "investigation_output": {
+    "top_candidate": "Unauthorized model deployed (bad commit)",
+    "findings_summary": "Found unauthorized model version in recent commits. Metrics anomalies correlate with deployment time.",
+    "actions_needed": [
+      "Check recent deployments for unauthorized versions",
+      "Review model-config.json in latest commits",
+      "Rollback to last known-good version"
+    ],
+    "candidates": [
+      {
+        "candidate": "Version mismatch after deployment",
+        "likelihood": "MEDIUM",
+        "evidence": "Model version in serving differs from GitHub HEAD"
+      }
+    ]
+  },
+  "remediation_output": {
+    "action": "rollback_model",
+    "reasoning": "Unauthorized model deployed (bad commit). Commit contains un...",
+    "confidence": "HIGH"
+  },
+  "last_checkpoint": "remediation_proposed",
+  "timestamp": "2026-08-26T13:36:16.392449",
+  "disconnections": 0,
+  "reconnections": 0
+}

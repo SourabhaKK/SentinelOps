@@ -1,0 +1,20 @@
+{
+  "incident_id": "bad-deploy-1787731584",
+  "session_id": "reconnect-test-bad-deploy",
+  "state": "REMEDIATION_PROPOSED",
+  "triage_output": {
+    "severity": "CRITICAL",
+    "type": "DISTRIBUTION_DRIFT"
+  },
+  "investigation_output": {
+    "root_cause": "Model input distribution shift (concept drift)",
+    "candidates_count": 2
+  },
+  "remediation_output": {
+    "action": "disable_endpoint"
+  },
+  "last_checkpoint": "remediation_proposed",
+  "timestamp": "2026-08-26T13:36:24.207596",
+  "disconnections": 1,
+  "reconnections": 1
+}

@@ -10,14 +10,17 @@
     "dev": "ts-node src/index.ts",
     "test": "vitest"
   },
-  "keywords": ["mcp", "telemetry"],
+  "keywords": [
+    "mcp",
+    "telemetry"
+  ],
   "author": "SentinelOps Team",
   "license": "MIT",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.30.0"
   },
   "devDependencies": {
-    "@types/node": "^26.2.0",
+    "@types/node": "^26.4.0",
     "ts-node": "^10.9.2",
     "typescript": "^7.0.2",
     "vitest": "^4.1.11"

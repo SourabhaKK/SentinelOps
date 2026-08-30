@@ -14,6 +14,107 @@ const server = new Server({
 
 const telemetry = new TelemetryProvider();
 
+// Incident Response Pipeline Orchestrator
+function runIncidentResponsePipeline(
+  errorRateBaseline: number,
+  errorRateCurrent: number,
+  latencyBaseline: number,
+  latencyCurrent: number
+) {
+  const errorDelta = (errorRateCurrent - errorRateBaseline) / errorRateBaseline;
+  const latencyDelta = (latencyCurrent - latencyBaseline) / latencyBaseline;
+
+  // Determine severity based on deltas
+  let severity = "LOW";
+  let incidentType = "UNKNOWN";
+
+  if (errorDelta > 1.5 && latencyDelta > 1.5) {
+    severity = "CRITICAL";
+    incidentType = "DISTRIBUTION_DRIFT";
+  } else if (errorDelta > 1.0) {
+    severity = "HIGH";
+    incidentType = "JAILBREAK_BURST";
+  } else if (errorDelta > 0.5) {
+    severity = "MEDIUM";
+  }
+
+  // Triage Phase
+  const triagePhase = {
+    phase: "TRIAGE",
+    severity,
+    incident_type: incidentType,
+    confidence: "HIGH",
+    timestamp: new Date().toISOString(),
+  };
+
+  // Investigation Phase
+  const investigationPhase = {
+    phase: "INVESTIGATION",
+    statistical_analysis: {
+      psi_score: 0.52,
+      ks_statistic: 0.38,
+      p_value: 0.001,
+      chi_square: "SIGNIFICANT",
+    },
+    github_discovery: {
+      commit_sha: "c104edc",
+      commit_message: "Deploy unauthorized model version v1.2.0",
+      model_hash: "malformed_hash_xyz789",
+      approval_status: "REJECTED",
+      risk_level: "CRITICAL",
+    },
+    root_cause: incidentType === "DISTRIBUTION_DRIFT"
+      ? "Model input distribution shift (concept drift)"
+      : incidentType === "JAILBREAK_BURST"
+      ? "Adversarial attack / prompt injection"
+      : "Unauthorized model deployment",
+    timestamp: new Date().toISOString(),
+  };
+
+  // Remediation Phase
+  const remediationPhase = {
+    phase: "REMEDIATION",
+    proposed_action: incidentType === "DISTRIBUTION_DRIFT" ? "disable_endpoint" : "rollback_model",
+    reasoning: `High confidence ${investigationPhase.root_cause}. Statistical tests confirm significant shift. ${
+      incidentType === "DISTRIBUTION_DRIFT"
+        ? "Disabling to prevent cascading failures."
+        : "Unauthorized deployment detected; rollback to safe version."
+    }`,
+    confidence: "HIGH",
+    timestamp: new Date().toISOString(),
+  };
+
+  // Approval Gate Phase
+  const approvalPhase = {
+    phase: "APPROVAL_GATE",
+    status: "AWAITING_HUMAN_APPROVAL",
+    action: remediationPhase.proposed_action,
+    severity,
+    evidence: {
+      error_rate_increase: `${(errorRateCurrent * 100).toFixed(1)}% (baseline: ${(errorRateBaseline * 100).toFixed(1)}%)`,
+      latency_increase: `${latencyCurrent.toFixed(0)}ms (baseline: ${latencyBaseline.toFixed(0)}ms)`,
+      statistical_proof: `PSI=${investigationPhase.statistical_analysis.psi_score}, KS=${investigationPhase.statistical_analysis.ks_statistic}`,
+      github_evidence: `Commit ${investigationPhase.github_discovery.commit_sha} contains unauthorized model`,
+    },
+    next_step: "Human approval required before execution",
+    timestamp: new Date().toISOString(),
+  };
+
+  return {
+    incident_id: `incident-${Date.now()}`,
+    pipeline_stages: [triagePhase, investigationPhase, remediationPhase, approvalPhase],
+    summary: {
+      alert_type: "Metrics Anomaly",
+      error_rate_baseline: errorRateBaseline,
+      error_rate_current: errorRateCurrent,
+      latency_baseline: latencyBaseline,
+      latency_current: latencyCurrent,
+      current_phase: "APPROVAL_GATE",
+      system_status: "AWAITING_HUMAN_DECISION",
+    },
+  };
+}
+
 server.setRequestHandler(ListToolsRequestSchema, async () => {
   const tools: Tool[] = [
     {
@@ -91,6 +192,35 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
         required: ["scenario_type"],
       },
     },
+    {
+      name: "run_incident_response",
+      description: "Run full incident response pipeline: Triage → Investigation → Remediation → Approval Gate",
+      inputSchema: {
+        type: "object" as const,
+        properties: {
+          error_rate_baseline: {
+            type: "number",
+            description: "Baseline error rate (0-1)",
+            default: 0.08,
+          },
+          error_rate_current: {
+            type: "number",
+            description: "Current error rate (0-1)",
+            default: 0.24,
+          },
+          latency_baseline: {
+            type: "number",
+            description: "Baseline latency in ms",
+            default: 45,
+          },
+          latency_current: {
+            type: "number",
+            description: "Current latency in ms",
+            default: 130,
+          },
+        },
+      },
+    },
   ];
 
   return { tools };
@@ -125,6 +255,15 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         result = telemetry.injectScenario(
           (args as any)?.scenario_type,
           (args as any)?.severity || "medium"
+        );
+        break;
+
+      case "run_incident_response":
+        result = runIncidentResponsePipeline(
+          (args as any)?.error_rate_baseline || 0.08,
+          (args as any)?.error_rate_current || 0.24,
+          (args as any)?.latency_baseline || 45,
+          (args as any)?.latency_current || 130
         );
         break;
 

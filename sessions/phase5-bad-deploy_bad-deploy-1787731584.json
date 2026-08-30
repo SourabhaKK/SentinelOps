@@ -1,0 +1,40 @@
+{
+  "incident_id": "bad-deploy-1787731584",
+  "session_id": "phase5-bad-deploy",
+  "state": "REMEDIATION_PROPOSED",
+  "triage_output": {
+    "severity": "CRITICAL",
+    "incident_type": "DISTRIBUTION_DRIFT",
+    "confidence": "HIGH"
+  },
+  "investigation_output": {
+    "top_candidate": "Model input distribution shift (concept drift)",
+    "findings_summary": "Detected statistical distribution shift in metrics. Error rate increased from baseline. Latency distribution shifted right.",
+    "actions_needed": [
+      "Disable inference endpoint pending investigation",
+      "Analyze data source for distribution changes",
+      "Consider reverting to previous model version"
+    ],
+    "candidates": [
+      {
+        "candidate": "Model input distribution shift",
+        "likelihood": "HIGH",
+        "evidence": "PSI=0.52 (>0.25 threshold), KS statistic=0.38, p-v..."
+      },
+      {
+        "candidate": "Recent data source change",
+        "likelihood": "MEDIUM",
+        "evidence": "Deploy history shows data pipeline updated 4 hours..."
+      }
+    ]
+  },
+  "remediation_output": {
+    "action": "disable_endpoint",
+    "reasoning": "High confidence Model input distribution shift (concept drif...",
+    "confidence": "HIGH"
+  },
+  "last_checkpoint": "remediation_proposed",
+  "timestamp": "2026-08-26T13:36:24.197965",
+  "disconnections": 0,
+  "reconnections": 0
+}

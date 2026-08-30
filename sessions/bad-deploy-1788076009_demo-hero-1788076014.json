@@ -1,0 +1,21 @@
+{
+  "incident_id": "demo-hero-1788076014",
+  "session_id": "bad-deploy-1788076009",
+  "state": "REMEDIATION_PROPOSED",
+  "triage_output": {
+    "severity": "CRITICAL",
+    "incident_type": "DISTRIBUTION_DRIFT",
+    "confidence": "HIGH"
+  },
+  "investigation_output": {
+    "root_cause": "Model input distribution shift (concept drift)",
+    "candidates": 2
+  },
+  "remediation_output": {
+    "action": "disable_endpoint"
+  },
+  "last_checkpoint": "remediation_proposed",
+  "timestamp": "2026-08-30T13:17:10.434450",
+  "disconnections": 0,
+  "reconnections": 0
+}

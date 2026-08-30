@@ -26,14 +26,15 @@ class DemoOrchestrator:
         """Get elapsed time in seconds."""
         return time.time() - self.start_time
 
-    def scene(self, title: str, duration_hint: str = ""):
-        """Print scene header with timing."""
+    def scene(self, title: str, duration_hint: str = "", pause_after: float = 2.0):
+        """Print scene header with timing and pause."""
         elapsed = self.elapsed()
         print(f"\n{'='*70}")
         print(f"[{elapsed:5.1f}s] SCENE: {title}")
         if duration_hint:
             print(f"         Duration: {duration_hint}")
         print(f"{'='*70}\n")
+        time.sleep(pause_after)  # Pause so scene is visible
 
     def narrator(self, text: str):
         """Print narrator text."""
@@ -59,8 +60,9 @@ class DemoOrchestrator:
         print(f"{'#'*70}\n")
 
         # Scene 1: Incident Alert
-        self.scene("Incident Alert", "0:00-0:30")
+        self.scene("Incident Alert", "0:00-0:30", pause_after=1.5)
         self.narrator("An ML model deployment goes wrong. The system detects metrics anomalies.")
+        time.sleep(1.0)
 
         incident = self.simulator.simulate_bad_deploy_incident(IncidentSeverity.CRITICAL)
 
