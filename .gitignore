@@ -3,8 +3,8 @@ dist/
 build/
 *.log
 .env
-.env.local
-.env.*.local
+.env.*
+!.env.example
 .vscode/
 .idea/
 *.swp
@@ -17,3 +17,11 @@ __pycache__/
 .pytest_cache/
 .venv/
 venv/
+
+# Keys and credentials
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+service-account*.json
