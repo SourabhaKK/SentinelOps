@@ -8,6 +8,13 @@ import tempfile
 from pathlib import Path
 from drift_analysis import psi_score, ks_statistic, chi_square_test, analyze_metric_drift
 import numpy as np
+import pytest
+
+
+@pytest.fixture(autouse=True)
+def _seed_random():
+    """Fixed seed so the statistical tests are deterministic (they were flaky)."""
+    np.random.seed(42)
 
 
 def test_psi_no_drift():
